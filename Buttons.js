@@ -1,5 +1,6 @@
-import React from "react"
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import React from "react";
+import {View, Text, TouchableOpacity, StyleSheet,Alert} from 'react-native';
+import { FAB } from 'react-native-paper';
 
 export function WhiteButton(props){
     const {onPress, text} = props
@@ -21,6 +22,51 @@ export function WhiteButton(props){
     )
 }
 
+export function MyFAB(props){
+    const {onPress} = props
+    return<FAB
+      icon="wifi"
+      style={styles.fab}
+      onPress={onPress}
+      //onPress = {() => navigation.navigate('WIFI')}
+      label= "WI-FI"
+      color= '#000'
+    />
+}
+
+export function MyBT(props){
+    const {onPress} = props
+    return<FAB
+      icon="bluetooth"
+      style={styles.fab1}
+      onPress={onPress}
+      //onPress = {() => navigation.navigate('BT')}
+      label= "BLUETOOTH"
+      color= '#000'
+    />
+}
+/*
+export const MyFAB = () => (
+    <FAB
+      icon="wifi"
+      style={styles.fab}
+      //onPress = {() => navigation.navigate('WIFI')}
+      label= "WI-FI"
+      color= '#000'
+    />
+  );
+
+export const MyBT = () => (
+    <FAB
+      icon="bluetooth"
+      style={styles.fab1}
+      //onPress = {() => navigation.navigate('BT')}
+      label= "BLUETOOTH"
+      color= '#000'
+    />
+  );
+*/
+
 const styles = StyleSheet.create({
     button:{
         flex: 0.1,
@@ -36,5 +82,21 @@ const styles = StyleSheet.create({
     buttonText: {
         textAlign:'center',    
         fontWeight: 'bold',
-    }
+    },
+    fab: {
+        position: 'absolute',
+        margin: 16,
+        left: 0,
+        bottom: 0,
+        paddingHorizontal: 28,
+        backgroundColor: '#f1f1f1',
+    },
+    fab1: {
+        position: 'absolute',
+        margin: 16,
+        right: 0,
+        bottom: 0,
+        paddingHorizontal: 0.1,
+        backgroundColor: '#f1f1f1',
+    },
 })
