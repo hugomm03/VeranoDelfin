@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
         margin: 16,
         left: 0,
         bottom: 0,
-        paddingHorizontal: 28,
+        width: 165,
+        //paddingHorizontal: 28,
         backgroundColor: '#f1f1f1',
     },
     fab1: {
@@ -96,7 +97,8 @@ const styles = StyleSheet.create({
         margin: 16,
         right: 0,
         bottom: 0,
-        paddingHorizontal: 0.1,
+        width: 165,
+        //paddingHorizontal: 0.1,
         backgroundColor: '#f1f1f1',
     },
 })
