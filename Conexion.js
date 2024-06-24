@@ -1,11 +1,12 @@
-import React from "react";
-import {StyleSheet, Text, View, ImageBackground, StatusBar, Alert, Image} from 'react-native';
+import React, {useState} from "react";
+import {StyleSheet, Text, View, ImageBackground, StatusBar, Alert, Image, ActivityIndicator} from 'react-native';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { MyFAB, MyBT } from "./Buttons";
 
 import Antena from './assets/Antena.png';
+//import { ActivityIndicator } from "react-native-paper";
 //import  {MainStack1}  from "./Index1";
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ export const Conexion = ({navigation}) => {
         <View style={styles.container}>
             <Text style={styles.titulo}>CONEXIÓN</Text>
             <Image style={styles.imagen} source={Antena}/>
-            <MyFAB onPress = {() => navigation.navigate('WIFI')}/>
+            <MyFAB onPress = {() => navigation.navigate('WIFI')}/> 
             <MyBT  onPress = {() => navigation.navigate('BT')}/>
             <Text style={styles.instruccion}>SELECCIONE UNA OPCIÓN PARA REALIZAR LA CONEXIÓN</Text>
            
@@ -26,6 +27,7 @@ export const Conexion = ({navigation}) => {
     );
 }
     //<MainStack1 /> 
+    //
 
 const styles = StyleSheet.create({
     imagen: {
