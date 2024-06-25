@@ -37,35 +37,27 @@ export function MyFAB(props){
 export function MyBT(props){
     const {onPress} = props
     return<FAB
-      icon="bluetooth"
+      icon="home"
       style={styles.fab1}
+      onPress={onPress}
+      //onPress = {() => navigation.navigate('BT')}
+      label= "INGRESAR"
+      color= '#000'
+    />
+}
+
+export function MyBTOri(props){
+    const {onPress} = props
+    return<FAB
+      icon="bluetooth"
+      disabled
+      style={styles.fab2}
       onPress={onPress}
       //onPress = {() => navigation.navigate('BT')}
       label= "BLUETOOTH"
       color= '#000'
     />
 }
-/*
-export const MyFAB = () => (
-    <FAB
-      icon="wifi"
-      style={styles.fab}
-      //onPress = {() => navigation.navigate('WIFI')}
-      label= "WI-FI"
-      color= '#000'
-    />
-  );
-
-export const MyBT = () => (
-    <FAB
-      icon="bluetooth"
-      style={styles.fab1}
-      //onPress = {() => navigation.navigate('BT')}
-      label= "BLUETOOTH"
-      color= '#000'
-    />
-  );
-*/
 
 const styles = StyleSheet.create({
     button:{
@@ -93,6 +85,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#f1f1f1',
     },
     fab1: {
+        position: 'absolute',
+        margin: 16,
+        right: 70,
+        bottom: 70,
+        width: 200,
+        //paddingHorizontal: 0.1,
+        backgroundColor: '#f1f1f1',
+    },
+    fab2: {
         position: 'absolute',
         margin: 16,
         right: 0,

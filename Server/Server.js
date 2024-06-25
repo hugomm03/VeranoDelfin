@@ -1,17 +1,20 @@
 const express = require ('express');
 const bodyParser = require ('body-parser');
 const mqtt = require('mqtt');
+//const fs = require('fs');
 
 const app = express();
-const port = 8081;
+const port = 8000;
 
-const mqtt_broker_address = "mqtt://192.168.0.107";
+const mqtt_broker_address = "mqtt://192.168.100.205";
 const mqttPublishChannel = "your/command/channel";
 const mqttSubscribeChannel = "your/result/channel";
 
 app.use(bodyParser.json());
 
-app.get('', (req,res)=>{
+app.get('/data', (req,res)=>{
+    //const fileWriteStream = fs.createWriteStream('./Aplicacion/assets/EmoStyle.jpg');
+
     const client = mqtt.connect(mqtt_broker_address);
     const message = 'On';
 
@@ -27,18 +30,19 @@ app.get('', (req,res)=>{
 
     });
 
-    client.on('message',async (topic, receivedMessage)=>{
+    client.on('message', async (topic, receivedMessage)=>{
         if (topic === mqttSubscribeChannel){
             client.unsubscribe(mqttSubscribeChannel);
             const key = receivedMessage.toString();
             console.log(`Received message on ${mqttSubscribeChannel}: ${key}`);
+            return res.status(200).send('No JALA NADA');
         }
     });
 
 });
 
 app.listen(port, ()=>{
-    console.log(`Server running on: http://localhost:${port}`);
+    console.log(`Server running on: http://localhost:${port}/data`);
 });
 
 process.on('SIGINT', () =>{
