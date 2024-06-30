@@ -34,6 +34,18 @@ export function MyFAB(props){
     />
 }
 
+export function INFO(props){
+    const {onPress} = props
+    return<FAB
+      icon="information"
+      style={styles.info1}
+      onPress={onPress}
+      //onPress = {() => navigation.navigate('WIFI')}
+      //label= "WI-FI"
+      color= '#000'
+    />
+}
+
 export function MyBT(props){
     const {onPress} = props
     return<FAB
@@ -102,4 +114,9 @@ const styles = StyleSheet.create({
         //paddingHorizontal: 0.1,
         backgroundColor: '#f1f1f1',
     },
+    info1:{
+        position: 'absolute',
+        margin: 16,
+        backgroundColor: '#f1f1f1',
+    }
 })

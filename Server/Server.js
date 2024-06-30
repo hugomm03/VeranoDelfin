@@ -11,12 +11,26 @@ const mqttPublishChannel = "your/command/channel";
 const mqttSubscribeChannel = "your/result/channel";
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({extended:true}));
 
-app.get('/data', (req,res)=>{
+//let receivedData = {};
+
+app.post('/data', function (req,res){
+    receivedData = req.body.name;
+    console.log("body =>", receivedData); //output {from: "MEX", to: "LIM"}
+    res.send("Data Recibida");
+});
+
+
+
+app.get('/data', function (req,res){
     //const fileWriteStream = fs.createWriteStream('./Aplicacion/assets/EmoStyle.jpg');
-
+    //var {body} = req;
     const client = mqtt.connect(mqtt_broker_address);
-    const message = 'On';
+
+    //console.log(Json.stringify(receivedData));
+    var message = JSON.stringify(receivedData);
+    console.log(message);
 
     client.subscribe(mqttSubscribeChannel, async (err) =>{
         if (err){
