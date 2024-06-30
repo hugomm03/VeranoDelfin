@@ -13,7 +13,7 @@ const mqttSubscribeChannel = "your/result/channel";
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended:true}));
 
-//let receivedData = {};
+let receivedData = {};
 
 app.post('/data', function (req,res){
     receivedData = req.body.name;
@@ -35,6 +35,7 @@ app.get('/data', function (req,res){
     client.subscribe(mqttSubscribeChannel, async (err) =>{
         if (err){
             console.error('Error al suscribir al canal: ', err);
+            client.end(); // Close the client connection
             return res.status(500).send('Error suscribiendo al canal:');
         } else{
             await client.publish(mqttPublishChannel, message, ()=>{
@@ -49,8 +50,15 @@ app.get('/data', function (req,res){
             client.unsubscribe(mqttSubscribeChannel);
             const key = receivedMessage.toString();
             console.log(`Received message on ${mqttSubscribeChannel}: ${key}`);
+            client.end(); // Close the client connection
             return res.status(200).send('No JALA NADA');
         }
+    });
+    
+    client.on('error', (err) => {
+        console.error('MQTT connection error:', err);
+        client.end(); // Close the client connection
+        res.status(500).send('MQTT connection error');
     });
 
 });
@@ -60,6 +68,6 @@ app.listen(port, ()=>{
 });
 
 process.on('SIGINT', () =>{
-    client.end();
+    //client.end();
     process.exit();
 })

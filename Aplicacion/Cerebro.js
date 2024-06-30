@@ -14,31 +14,41 @@ const showAlert = () =>
     );
 
 
-const Hablar =  () =>{
+const Hablar =  async () =>{
     const data = {name: "Hablar"};
     console.log('Se ha presionado el botón de HABLAR');
-    fetch('http://192.168.100.204:8000/data', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',//(B)
-          },
-          body: JSON.stringify(data),//(D)
-    });
-    axios.get('http://192.168.100.204:8000/data');
+    try{
+        await fetch('http://192.168.100.204:8000/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',//(B)
+              },
+              body: JSON.stringify(data),//(D)
+        });
+        
+        await axios.get('http://192.168.100.204:8000/data');
+    } catch(error){
+        console.error('Error:', error);
+    }
 };
 
 
-const Oido =  () =>{
+const Oido = async () =>{
     const data = {name: "Oido"};
     console.log('Se ha presionado el botón de Oido');
-    fetch('http://192.168.100.204:8000/data', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',//(B)
-          },
-          body: JSON.stringify(data),//(D)
-    })
-    axios.get('http://192.168.100.204:8000/data');
+    try{
+        await fetch('http://192.168.100.204:8000/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',//(B)
+            },
+            body: JSON.stringify(data),//(D)
+        });
+
+        await axios.get('http://192.168.100.204:8000/data');
+    } catch(error){
+        console.error('Error:', error);
+    }
 };
 
 export const Cerebro = ({navigation}) => {
