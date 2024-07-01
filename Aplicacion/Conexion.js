@@ -41,8 +41,8 @@ export const Conexion = ({navigation}) => {
         <View style={styles.container}>
             <Text style={styles.titulo}>CONEXIÓN</Text>
             <Image style={styles.imagen} source={Antena}/>
-            <MyFAB onPress = {() => navigation.navigate('Cerebro')}/>
-            <MyBTOri onPress = {() => navigation.navigate('Cerebro')}/>
+            <MyFAB onPress = {() => navigation.navigate('Enlace1')}/>
+            <MyBTOri onPress = {() => navigation.navigate('Enlace1')}/>
             <Text style={styles.instruccion}>SELECCIONE UNA OPCIÓN PARA REALIZAR LA CONEXIÓN</Text>
         </View>
         
