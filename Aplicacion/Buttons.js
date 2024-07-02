@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, TouchableOpacity, StyleSheet,Alert} from 'react-native';
-import { FAB } from 'react-native-paper';
+import { FAB, Button} from 'react-native-paper';
 
 export function WhiteButton(props){
     const {onPress, text} = props
@@ -30,6 +30,18 @@ export function MyFAB(props){
       onPress={onPress}
       //onPress = {() => navigation.navigate('WIFI')}
       label= "WI-FI"
+      color= '#000'
+    />
+}
+
+export function MyREG(props){
+    const {onPress} = props
+    return<FAB
+      icon="arrow-left-bold"
+      style={styles.butreg}
+      onPress={onPress}
+      //onPress = {() => navigation.navigate('WIFI')}
+      //label= "REGRESAR"
       color= '#000'
     />
 }
@@ -118,5 +130,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         margin: 16,
         backgroundColor: '#f1f1f1',
+    },
+    butreg:{
+        position: 'absolute',
+        margin: 16,
+        left: 0,
+        top: 0,
+        //width: 165,
+        //paddingHorizontal: 0.1,
+        backgroundColor: '#D6DBDF',
     }
 })

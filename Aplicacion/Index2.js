@@ -2,8 +2,10 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {Cerebro} from './Cerebro';
-import {Habla} from './Habla';
-import {Oidos} from './Oidos';
+import {Habla} from './Areas/Habla';
+import {Oidos} from './Areas/Oidos';
+import {Control} from './Areas/Control';
+import {Concentracion} from './Areas/Concentracion';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,7 +28,18 @@ export const MainStack2 = () =>{
                     name="Oidos" 
                     component={Oidos}
                 />
+
+                <Stack.Screen 
+                    name="Control" 
+                    component={Control}
+                />
+
+                <Stack.Screen 
+                    name="Concentracion" 
+                    component={Concentracion}
+                />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
-}
+}//

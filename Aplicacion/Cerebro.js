@@ -18,6 +18,44 @@ const showAlert = () =>
 
 
 export const Cerebro = ({navigation}) => {
+    const ControlM = async () =>{
+        const data = {name: "Control"};
+        navigation.navigate('Control');
+        console.log('Se ha presionado el botón de Oido');
+        try{
+            await fetch('http://192.168.100.204:8000/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',//(B)
+                },
+                body: JSON.stringify(data),//(D)
+            });
+    
+            await axios.get('http://192.168.100.204:8000/data');
+        } catch(error){
+            console.error('Error:', error);
+        }
+    };    
+
+    const ConcentracionP = async () =>{
+        const data = {name: "Concentracion"};
+        navigation.navigate('Concentracion');
+        console.log('Se ha presionado el botón de Oido');
+        try{
+            await fetch('http://192.168.100.204:8000/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',//(B)
+                },
+                body: JSON.stringify(data),//(D)
+            });
+    
+            await axios.get('http://192.168.100.204:8000/data');
+        } catch(error){
+            console.error('Error:', error);
+        }
+    };    
+
     const Hablar =  async () =>{
         const data = {name: "Hablar"};
         navigation.navigate('Habla');
@@ -63,9 +101,13 @@ export const Cerebro = ({navigation}) => {
         <View style={styles.container}>
 
             <ImageBackground source={Cerebro3D} resizeMode="contain" style={styles.image}>
-            <IconButton icon="account-voice" size={250} onPress={Hablar} />
-            <IconButton icon="ear-hearing" size={250} onPress={Oido} />
-            <Button buttonColor={'#fff'} onPress={() => {}} style={styles.button}/>
+            <IconButton icon="account-voice" size={150} onPress={Hablar} />
+            <IconButton icon="ear-hearing" size={150} onPress={Oido} />
+            
+            <IconButton icon="car" size={150} onPress={ControlM} />
+            <IconButton icon="lightbulb" size={150} onPress={ConcentracionP} />
+
+
             <INFO onPress = {showAlert}/>
             </ImageBackground>
             
