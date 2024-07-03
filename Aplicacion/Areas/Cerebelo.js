@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native'
 
 import { Video, ResizeMode } from "expo-av";
 
-import ELTACTO from '../assets/ELTACTOYLAPRESION.mp4';
+//import ELCEREBELO from '../assets/ELCEREBELO.mp4';
 import { MyREG } from "../Buttons";
 
-export const Tacto = ({navigation}) => {
+export const Cerebelo = ({navigation}) => {
     const video = useRef(null);
     const [state,setState]= useState({hasAutoplayed: false,playing: true});
 
@@ -31,16 +31,7 @@ export const Tacto = ({navigation}) => {
 
     return(
         <View style={styles.container}>
-            <Video
-                ref={video}
-                style={styles.video}
-                source={ELTACTO}
-                useNativeControls
-                resizeMode={ResizeMode.COVER}
-                isLooping
-                shouldPlay={ state.playing }
-			    onPlaybackStatusUpdate={onStatusUpdate}
-            />
+
             <View style={{flex:1}}>
                 <MyREG onPress = {() => navigation.navigate('Cerebro')}/>
 
@@ -48,6 +39,16 @@ export const Tacto = ({navigation}) => {
         </View>
     );
 }
+            /*<Video
+                ref={video}
+                style={styles.video}
+                source={ELCEREBELO}
+                useNativeControls
+                resizeMode={ResizeMode.COVER}
+                isLooping
+                shouldPlay={ state.playing }
+			    onPlaybackStatusUpdate={onStatusUpdate}
+            />*/
 //<WhiteButton onPress = {() => navigation.navigate('Enlace')} text = "INGRESAR"/>
 const styles = StyleSheet.create({
     container: {
