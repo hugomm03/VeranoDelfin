@@ -6,7 +6,7 @@ const mqtt = require('mqtt');
 const app = express();
 const port = 8000;
 
-const mqtt_broker_address = "mqtt://192.168.100.205";
+const mqtt_broker_address = "mqtt://192.168.0.107";//"mqtt://192.168.100.205";
 const mqttPublishChannel = "your/command/channel";
 const mqttSubscribeChannel = "your/result/channel";
 

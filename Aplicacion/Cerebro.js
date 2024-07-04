@@ -15,8 +15,6 @@ const showAlert = () =>
     );
 
 
-
-
 export const Cerebro = ({navigation}) => {
 
     const ControlM = async () =>{
@@ -24,7 +22,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Control');
         console.log('Se ha presionado el botón de Control');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -32,7 +30,10 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            fetch('http://192.168.0.117:8000/data', {
+                method: 'GET',
+            })
+            //await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -43,7 +44,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Concentracion');
         console.log('Se ha presionado el botón de Concentración');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -51,7 +52,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -62,7 +63,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Habla');
         console.log('Se ha presionado el botón de HABLAR');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -70,7 +71,7 @@ export const Cerebro = ({navigation}) => {
                   body: JSON.stringify(data),//(D)
             });
             
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -82,7 +83,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Olfato');
         console.log('Se ha presionado el botón de Olfato');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -90,7 +91,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -101,7 +102,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Oidos');
         console.log('Se ha presionado el botón de Oido');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -109,7 +110,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -120,7 +121,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Reconocimiento');
         console.log('Se ha presionado el botón de Reconocimiento');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -128,7 +129,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -139,7 +140,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Lectura');
         console.log('Se ha presionado el botón de Lectura');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -147,7 +148,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -159,7 +160,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Lenguaje');
         console.log('Se ha presionado el botón de Lenguaje');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -167,7 +168,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -178,7 +179,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Conciencia');
         console.log('Se ha presionado el botón de Conciencia');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -186,7 +187,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -197,7 +198,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Sabor');
         console.log('Se ha presionado el botón de Sabor');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -205,7 +206,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -216,7 +217,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Tacto');
         console.log('Se ha presionado el botón de Tacto');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -224,7 +225,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -235,7 +236,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Vision');
         console.log('Se ha presionado el botón de Vision');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -243,7 +244,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
@@ -254,7 +255,7 @@ export const Cerebro = ({navigation}) => {
         navigation.navigate('Cerebelo');
         console.log('Se ha presionado el botón de Cerebelo');
         try{
-            await fetch('http://192.168.100.204:8000/data', {
+            await fetch('http://192.168.0.117:8000/data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',//(B)
@@ -262,7 +263,7 @@ export const Cerebro = ({navigation}) => {
                 body: JSON.stringify(data),//(D)
             });
     
-            await axios.get('http://192.168.100.204:8000/data');
+            await axios.get('http://192.168.0.117:8000/data');
         } catch(error){
             console.error('Error:', error);
         }
