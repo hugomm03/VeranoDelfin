@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native'
 
 import { Video, ResizeMode } from "expo-av";
 
-//import ELCEREBELO from '../assets/ELCEREBELO.mp4';
+import ELCEREBELO from '../assets/ELCEREBELO.mp4';
 import { MyREG } from "../Buttons";
 
 export const Cerebelo = ({navigation}) => {
@@ -31,15 +31,7 @@ export const Cerebelo = ({navigation}) => {
 
     return(
         <View style={styles.container}>
-
-            <View style={{flex:1}}>
-                <MyREG onPress = {() => navigation.navigate('Cerebro')}/>
-
-            </View>
-        </View>
-    );
-}
-            /*<Video
+            <Video
                 ref={video}
                 style={styles.video}
                 source={ELCEREBELO}
@@ -48,7 +40,15 @@ export const Cerebelo = ({navigation}) => {
                 isLooping
                 shouldPlay={ state.playing }
 			    onPlaybackStatusUpdate={onStatusUpdate}
-            />*/
+            />
+            <View style={{flex:1}}>
+                <MyREG onPress = {() => navigation.navigate('Cerebro')}/>
+
+            </View>
+        </View>
+    );
+}
+
 //<WhiteButton onPress = {() => navigation.navigate('Enlace')} text = "INGRESAR"/>
 const styles = StyleSheet.create({
     container: {
