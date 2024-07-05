@@ -5,11 +5,23 @@ import { Video, ResizeMode } from "expo-av";
 
 import LAVISION from '../assets/LAVISION.mp4';
 import { MyREG } from "../Buttons";
+import { instance } from "../Server";
 
 export const Vision = ({navigation}) => {
     const video = useRef(null);
     const [state,setState]= useState({hasAutoplayed: false,playing: true});
 
+    const Retorno = async () =>{
+        navigation.navigate('Cerebro');
+        console.log('Se ha presionado el botón de Retorno');
+        try{
+            const res = await instance.post('/data',{name: "Retorno"});
+            console.log(res.data)
+
+        } catch(error){
+            //console.error('Error:', error);
+        }
+    };
 
 	onStatusUpdate = status => {
 		const isPlaying = status.isLoaded && status.isPlaying;
@@ -42,7 +54,7 @@ export const Vision = ({navigation}) => {
 			    onPlaybackStatusUpdate={onStatusUpdate}
             />
             <View style={{flex:1}}>
-                <MyREG onPress = {() => navigation.navigate('Cerebro')}/>
+                <MyREG onPress = {Retorno}/>
 
             </View>
         </View>
