@@ -109,9 +109,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#f1f1f1',
     },
     fab1: {
+        flex:1,
         position: 'absolute',
         margin: 16,
-        right: 70,
+        right: 75,
         bottom: 70,
         width: 200,
         //paddingHorizontal: 0.1,

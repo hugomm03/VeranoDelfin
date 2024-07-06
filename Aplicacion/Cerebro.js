@@ -171,26 +171,26 @@ export const Cerebro = ({navigation}) => {
         <View style={styles.container}>
 
             <ImageBackground source={Cerebro3D} resizeMode="contain" style={styles.image}>
-            <IconButton icon="account-voice" iconColor={MD3Colors.secondary0} size={25} onPress={Hablar} style={styles.bruh} />
-            <IconButton icon="smoke" size={25} iconColor={MD3Colors.secondary0} onPress={Olfato} style={styles.bruh1}/>
-            <IconButton icon="car" size={25} iconColor={MD3Colors.secondary0} onPress={ControlM} style={styles.bruh2}/>
-            <IconButton icon="lightbulb" size={25} iconColor={MD3Colors.secondary0} onPress={ConcentracionP} style={styles.bruh3}/>
-            
-            <IconButton icon="ear-hearing" size={25} iconColor={MD3Colors.secondary0} onPress={Oido} style={styles.bruh4}/>
-            <IconButton icon="face-recognition" size={25} iconColor={MD3Colors.secondary0} onPress={Reconocimiento} style={styles.bruh5}/>
-            <IconButton icon="book-open-variant" size={25} iconColor={MD3Colors.secondary0} onPress={Lectura} style={styles.bruh6}/>
+                
+                <IconButton icon="account-voice" iconColor={MD3Colors.secondary0} size={25} onPress={Hablar} style={styles.bruh} />
+                <IconButton icon="smoke" size={25} iconColor={MD3Colors.secondary0} onPress={Olfato} style={styles.bruh1}/>
+                <IconButton icon="car" size={25} iconColor={MD3Colors.secondary0} onPress={ControlM} style={styles.bruh2}/>
+                <IconButton icon="lightbulb" size={25} iconColor={MD3Colors.secondary0} onPress={ConcentracionP} style={styles.bruh3}/>
+                
+                <IconButton icon="ear-hearing" size={25} iconColor={MD3Colors.secondary0} onPress={Oido} style={styles.bruh4}/>
+                <IconButton icon="face-recognition" size={25} iconColor={MD3Colors.secondary0} onPress={Reconocimiento} style={styles.bruh5}/>
+                <IconButton icon="book-open-variant" size={25} iconColor={MD3Colors.secondary0} onPress={Lectura} style={styles.bruh6}/>
 
-            <IconButton icon="format-letter-case" size={25} iconColor={MD3Colors.secondary0} onPress={Lenguaje} style={styles.bruh7}/>
-            <IconButton icon="thought-bubble" size={25} iconColor={MD3Colors.secondary0} onPress={Conciencia} style={styles.bruh8}/>
-            <IconButton icon="emoticon-tongue" size={25} iconColor={MD3Colors.secondary0} onPress={Sabor} style={styles.bruh9}/>
-            <IconButton icon="hand-clap" size={25} iconColor={MD3Colors.secondary0} onPress={Tacto} style={styles.bruh10}/>
+                <IconButton icon="format-letter-case" size={25} iconColor={MD3Colors.secondary0} onPress={Lenguaje} style={styles.bruh7}/>
+                <IconButton icon="thought-bubble" size={25} iconColor={MD3Colors.secondary0} onPress={Conciencia} style={styles.bruh8}/>
+                <IconButton icon="emoticon-tongue" size={25} iconColor={MD3Colors.secondary0} onPress={Sabor} style={styles.bruh9}/>
+                <IconButton icon="hand-clap" size={25} iconColor={MD3Colors.secondary0} onPress={Tacto} style={styles.bruh10}/>
 
-            <IconButton icon="eye" size={25} iconColor={MD3Colors.secondary0} onPress={Vision} style={styles.bruh11}/>
+                <IconButton icon="eye" size={25} iconColor={MD3Colors.secondary0} onPress={Vision} style={styles.bruh11}/>
 
-            <IconButton icon="walk" size={25} iconColor={MD3Colors.secondary0} onPress={Cerebelo} style={styles.bruh12}/>
+                <IconButton icon="walk" size={25} iconColor={MD3Colors.secondary0} onPress={Cerebelo} style={styles.bruh12}/>
 
-
-            <INFO onPress = {showAlert}/>
+                <INFO onPress = {showAlert}/>
             </ImageBackground>
             
         </View>
@@ -207,6 +207,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000',
+    },   
+
+    centerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     button: {
@@ -216,67 +222,67 @@ const styles = StyleSheet.create({
     },
     bruh: {
         //margin: 16,
-        left: 100,
-        top: 390,
+        left: '25%',
+        top: '47%',
     },   
     bruh1: {
         //margin: 16,
-        left: 60,
-        top: 400  
+        left: '15%',
+        top: '47%'  
     },
     bruh2: {
         //margin: 16,
-        left: 150,
-        top: 220  
+        left: '35%',
+        top: '25%'  
     },
     bruh3: {
         //margin: 16,
-        left: 60,
-        top: 170  
+        left: '10%',
+        top: '19%'  
     },
     bruh4: {
         //margin: 16,
-        left: 185,
-        top: 180  
+        left: '45%',
+        top: '18%'  
     },
     bruh5: {
         //margin: 16,
-        left: 230,
-        top: 188  
+        left: '55%',
+        top: '19%'  
     },
     bruh6: {
         //margin: 16,
-        left: 250,
-        top: 70  
+        left: '60%',
+        top: '4%'  
     },
     bruh7: {
         //margin: 16,
-        left: 250,
-        top:  0 
+        left: '61%',
+        top:  '-6%' 
     },
     bruh8: {
         //margin: 16,
-        left: 280,
-        top: -85  
+        left: '69%',
+        top: '-16%'  
     },
     bruh9: {
         //margin: 16,
-        left: 170,
-        top: -110  
+        left: '41%',
+        top: '-20%'  
     },
     bruh10: {
         //margin: 16,
-        left: 190,
-        top: -220  
+        left: '46%',
+        top: '-34%'  
     },
     bruh11: {
         //margin: 16,
-        left: 350,
-        top: -160  
+        left: '85%',
+        top: '-28%'  
     },
     bruh12: {
         //margin: 16,
-        left: 270,
-        top: -140  
+        left: '65%',
+        top: '-25%'  
     }
 });
