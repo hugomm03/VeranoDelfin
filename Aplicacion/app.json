@@ -18,10 +18,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/Icon-full.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.hugomontalvo.Aplicacion"
     },
     "web": {
       "favicon": "./assets/Icon-full.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c3ac46b1-32f4-4475-8024-dca66a55b9df"
+      }
     }
   }
 }
