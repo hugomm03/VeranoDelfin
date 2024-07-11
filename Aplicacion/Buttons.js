@@ -34,6 +34,18 @@ export function MyFAB(props){
     />
 }
 
+export function ACEPTAR(props){
+    const {onPress} = props
+    return<FAB
+      icon="access-point-check"
+      style={styles.fab}
+      onPress={onPress}
+      //onPress = {() => navigation.navigate('WIFI')}
+      label= "ACEPTAR"
+      color= '#000'
+    />
+}
+
 export function MyREG(props){
     const {onPress} = props
     return<FAB
