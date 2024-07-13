@@ -1,6 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {WIFI} from './WIFI';
 import {Cerebro} from './Cerebro';
 import {Habla} from './Areas/Habla';
 import {Oidos} from './Areas/Oidos';
@@ -23,6 +24,11 @@ export const MainStack2 = () =>{
         <NavigationContainer independent={true}>
             <Stack.Navigator screenOptions={{headerShown: false}}>
 
+                <Stack.Screen 
+                    name="WIFI" 
+                    component={WIFI}
+                />
+                
                 <Stack.Screen 
                     name="Cerebro" 
                     component={Cerebro}

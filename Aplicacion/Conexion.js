@@ -15,27 +15,7 @@ const Stack = createNativeStackNavigator();
 
 
 export const Conexion = ({navigation}) => {
-    /*const [loading, setLoading] = useState(false);
-    const [name, setName] = useState(null);
-    const conectar = async () =>{
-        //console.log('Se ha presionado el botón de WIFI');
-        //const response = await axios.get('http://192.168.100.204:8000/data');
-        try{
-            const response = await axios.get('http://192.168.100.204:8000/data');
-            console.log(response);
-            if (response.status === 200){
-                console.log('Se ha presionado el botón de WIFI');
-                console.log(response);
-            } else {
-                console.error('No se ha presionado el botón');
-            }
-        } catch (error){
-            console.error('Error:', error);
-            console.log(response);
-        }
-        //navigation.navigate('WIFI');
-    };*/
-  
+
     return(
             
         <View style={styles.container}>

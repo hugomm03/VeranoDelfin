@@ -38,7 +38,7 @@ export function ACEPTAR(props){
     const {onPress} = props
     return<FAB
       icon="access-point-check"
-      style={styles.fab}
+      style={styles.acept}
       onPress={onPress}
       //onPress = {() => navigation.navigate('WIFI')}
       label= "ACEPTAR"
@@ -152,5 +152,15 @@ const styles = StyleSheet.create({
         //width: 165,
         //paddingHorizontal: 0.1,
         backgroundColor: '#D6DBDF',
+    },
+    acept: {
+        //flex: 1,
+        position: 'absolute',
+        margin: 16,
+        right: 75,
+        top: 560,
+        width: 200,
+        //paddingHorizontal: 0.1,
+        backgroundColor: '#f1f1f1',
     }
 })
