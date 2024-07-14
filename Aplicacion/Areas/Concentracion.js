@@ -1,15 +1,31 @@
-import {React,useState, useRef} from "react";
+import React, {useState, useRef} from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import axios from "axios";
 import { StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
 
 import { Video, ResizeMode } from "expo-av";
 
 import Conce from '../assets/CONCENTRACION.mp4';
 import { MyREG } from "../Buttons";
-import { instance } from "../Server";
 
-export const Concentracion = ({navigation}) => {
+export const Concentracion = ({navigation, route}) => {
     const video = useRef(null);
     const [state,setState]= useState({hasAutoplayed: false,playing: true});
+    const [baseUrl, setBaseUrl]=useState('');
+
+    useFocusEffect(
+        React.useCallback(() => {
+          const { base } = route.params || {};
+          if (base) {
+            setBaseUrl(base);
+            console.log(base);
+          }
+        }, [route.params])
+    );
+
+    const instance = axios.create({
+        baseURL: baseUrl
+    });
 
     const Retorno = async () =>{
         navigation.navigate('Cerebro');

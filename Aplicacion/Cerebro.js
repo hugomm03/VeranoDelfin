@@ -2,26 +2,42 @@ import React, {useState} from "react";
 import {StyleSheet, Text, View, ImageBackground, StatusBar, Alert, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Button, IconButton, FAB, MD3Colors} from 'react-native-paper';
-//import axios from 'axios';
+import axios from 'axios';
 
 import Cerebro3D from './assets/Cerebro.png'; //Mandar llamar un objeto por importación no requiere corchetes
-import {INFO} from "./Buttons";
+import {INFO, MyREG } from "./Buttons";
+//import { instance } from "./Server";
 
-import { instance } from "./Server";
-
+import { useFocusEffect } from "@react-navigation/native";
 
 const showAlert = () =>
     Alert.alert(
       'Bienvenid@ A La Interfaz De Comunicación',
       'De acuerdo con las áreas presentadas en el modelo, al presionar los botones se encenderan en el prototipo físico y aparecera un video.',
+);
+
+
+export const Cerebro = ({navigation, route}) => {
+    const [baseUrl, setBaseUrl]=useState('');
+
+    useFocusEffect(
+        React.useCallback(() => {
+          const { ip } = route.params || {};
+          if (ip) {
+            const URLCOMPLETA = `http://${ip}:5000/`;
+            setBaseUrl(URLCOMPLETA);
+            console.log(URLCOMPLETA);
+          } 
+        }, [route.params])
     );
 
-
-export const Cerebro = ({navigation}) => {
+    const instance = axios.create({
+        baseURL: baseUrl
+    });
 
     const ControlM = async () =>{
         //const data = {name: "Control"};
-        navigation.navigate('Control');
+        navigation.navigate('Control', { base: baseUrl });
         console.log('Se ha presionado el botón de Control');
         try{
             const res = await instance.post('/data',{name: "Control"});
@@ -34,7 +50,7 @@ export const Cerebro = ({navigation}) => {
 
     const ConcentracionP = async () =>{
         //const data = {name: "Concentracion"};
-        navigation.navigate('Concentracion');
+        navigation.navigate('Concentracion', { base: baseUrl });
         console.log('Se ha presionado el botón de Concentración');
         try{
             const res = await instance.post('/data',{name: "Concentracion"});
@@ -45,7 +61,7 @@ export const Cerebro = ({navigation}) => {
 
     const Hablar =  async () =>{
         //const data = {name: "Hablar"};
-        navigation.navigate('Habla');
+        navigation.navigate('Habla', { base: baseUrl });
         console.log('Se ha presionado el botón de HABLAR');
         try{
             const res = await instance.post('/data',{name: "Hablar"});
@@ -57,7 +73,7 @@ export const Cerebro = ({navigation}) => {
     
     const Olfato = async () =>{
         //const data = {name: "Olfato"};
-        navigation.navigate('Olfato');
+        navigation.navigate('Olfato', { base: baseUrl });
         console.log('Se ha presionado el botón de Olfato');
         try{
             const res = await instance.post('/data',{name: "Olfato"});
@@ -68,7 +84,7 @@ export const Cerebro = ({navigation}) => {
     
     const Oido = async () =>{
         //const data = {name: "Oido"};
-        navigation.navigate('Oidos');
+        navigation.navigate('Oidos', { base: baseUrl });
         console.log('Se ha presionado el botón de Oido');
         try{
             const res = await instance.post('/data',{name: "Oido"});
@@ -79,7 +95,7 @@ export const Cerebro = ({navigation}) => {
 
     const Reconocimiento = async () =>{
         //const data = {name: "Reconocimiento"};
-        navigation.navigate('Reconocimiento');
+        navigation.navigate('Reconocimiento', { base: baseUrl });
         console.log('Se ha presionado el botón de Reconocimiento');
         try{
             const res = await instance.post('/data',{name: "Reconocimiento"});
@@ -90,7 +106,7 @@ export const Cerebro = ({navigation}) => {
 
     const Lectura = async () =>{
         //const data = {name: "Lectura"};
-        navigation.navigate('Lectura');
+        navigation.navigate('Lectura', { base: baseUrl });
         console.log('Se ha presionado el botón de Lectura');
         try{
             const res = await instance.post('/data',{name: "Lectura"});
@@ -102,7 +118,7 @@ export const Cerebro = ({navigation}) => {
     
     const Lenguaje = async () =>{
         //const data = {name: "Lenguaje"};
-        navigation.navigate('Lenguaje');
+        navigation.navigate('Lenguaje', { base: baseUrl });
         console.log('Se ha presionado el botón de Lenguaje');
         try{
             const res = await instance.post('/data',{name: "Lenguaje"});
@@ -113,7 +129,7 @@ export const Cerebro = ({navigation}) => {
 
     const Conciencia = async () =>{
         //const data = {name: "Conciencia"};
-        navigation.navigate('Conciencia');
+        navigation.navigate('Conciencia', { base: baseUrl });
         console.log('Se ha presionado el botón de Conciencia');
         try{
             const res = await instance.post('/data',{name: "Conciencia"});
@@ -124,7 +140,7 @@ export const Cerebro = ({navigation}) => {
 
     const Sabor = async () =>{
         //const data = {name: "Sabor"};
-        navigation.navigate('Sabor');
+        navigation.navigate('Sabor', { base: baseUrl });
         console.log('Se ha presionado el botón de Sabor');
         try{
             const res = await instance.post('/data',{name: "Sabor"});
@@ -135,7 +151,7 @@ export const Cerebro = ({navigation}) => {
 
     const Tacto = async () =>{
         //const data = {name: "Tacto"};
-        navigation.navigate('Tacto');
+        navigation.navigate('Tacto', { base: baseUrl });
         console.log('Se ha presionado el botón de Tacto');
         try{
             const res = await instance.post('/data',{name: "Tacto"});
@@ -146,7 +162,7 @@ export const Cerebro = ({navigation}) => {
 
     const Vision = async () =>{
         //const data = {name: "Vision"};
-        navigation.navigate('Vision');
+        navigation.navigate('Vision', { base: baseUrl });
         console.log('Se ha presionado el botón de Vision');
         try{
             const res = await instance.post('/data',{name: "Vision"});
@@ -157,13 +173,18 @@ export const Cerebro = ({navigation}) => {
 
     const Cerebelo = async () =>{
         //const data = {name: "Cerebelo"};
-        navigation.navigate('Cerebelo');
+        navigation.navigate('Cerebelo', { base: baseUrl });
         console.log('Se ha presionado el botón de Cerebelo');
         try{ 
             const res = await instance.post('/data',{name: "Cerebelo"});
         } catch(error){
             //console.error('Error:', error);
         }
+    };
+
+    const Retorno = async () =>{
+        navigation.navigate('WIFI');
+        console.log('Se ha presionado el botón de Retorno');
     };
 
     return(
@@ -189,7 +210,7 @@ export const Cerebro = ({navigation}) => {
                 <IconButton icon="eye" size={25} iconColor={MD3Colors.secondary0} onPress={Vision} style={styles.bruh11}/>
 
                 <IconButton icon="walk" size={25} iconColor={MD3Colors.secondary0} onPress={Cerebelo} style={styles.bruh12}/>
-
+                <MyREG onPress = {Retorno}/>
                 <INFO onPress = {showAlert}/>
             </ImageBackground>
             

@@ -1,16 +1,32 @@
-import {React,useState, useRef} from "react";
+import React, {useState, useRef} from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import axios from "axios";
 import { StyleSheet, Text, View, ImageBackground, StatusBar} from 'react-native';
 
 import { Video, ResizeMode } from "expo-av";
 
 import ElHabla from '../assets/ELHABLA.mp4';
 import { MyREG } from "../Buttons";
-import { instance } from "../Server";
 
-export const Habla = ({navigation}) => {
+export const Habla = ({navigation, route}) => {
     const video = useRef(null);
     const [state,setState]= useState({hasAutoplayed: false,playing: true});
-    
+    const [baseUrl, setBaseUrl]=useState('');
+
+    useFocusEffect(
+        React.useCallback(() => {
+          const { base } = route.params || {};
+          if (base) {
+            setBaseUrl(base);
+            console.log(base);
+          }
+        }, [route.params])
+    );
+
+    const instance = axios.create({
+        baseURL: baseUrl
+    });
+
     const Retorno = async () =>{
         navigation.navigate('Cerebro');
         console.log('Se ha presionado el botón de Retorno');

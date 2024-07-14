@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     info1:{
         position: 'absolute',
         margin: 16,
+        right: 0,
         backgroundColor: '#f1f1f1',
     },
     butreg:{
